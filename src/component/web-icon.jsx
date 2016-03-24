@@ -26,7 +26,7 @@ var WebIcon = React.createClass({
 
         return (
             <div style={Styles.webIcon} >
-                <a href={this.props.url} title={name}>
+                <a href={this.props.url} title={name} target="_blank" >
                     <img src={favicon} alt={name} style={Styles.image}/>
                 </a>
             </div>
