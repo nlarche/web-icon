@@ -1,20 +1,42 @@
 import React from 'react';
 import Styles from './web-icon.css';
 
+var WebIcon = React.createClass({
+    getInitialState() {
+        return {
+            favicon: null,
+            name: null,
+            counter: 0
+        };
+    },  
+    searchFavicon: function() {
+        var favicon;
 
-var WebIcon = React.createClass({   
-   
-    render: function() {
+        if (this.state.counter === 0) {
+            favicon = this.props.url + '/favicon.ico'
+        } else {
+            favicon = this.props.url + '/assets/favicon.png'
+        }
+        return favicon;
+        //this.setState({ favicon: favicon });
+    },
+    componentDidMount() {
+
+        var url = this.props.url;
+
         var parser = document.createElement('a');
-        parser.href = this.props.url;
+        parser.href = url
 
-        var favicon = this.props.url + "/favicon.ico";
-        var name = parser.hostname;      
-
+        this.setState({
+            favicon: this.searchFavicon(),
+            name: parser.hostname
+        });     
+    },
+    render: function() {
         return (
             <div className={Styles.webIcon} >
-                <a href={this.props.url} title={name} target="_blank"  >
-                    <img src={favicon} alt={name} className={Styles.image}/>
+                <a href={this.props.url} title={this.state.name} target="_blank"  >
+                    <img src={this.state.favicon} alt={this.state.name} className={Styles.image}/>
                 </a>
             </div>
         );
