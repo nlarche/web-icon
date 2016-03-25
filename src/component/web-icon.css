@@ -1,0 +1,17 @@
+.webIconList  {
+    display: flex;
+    flex-direction: row;    
+    width : 30%;
+}
+.webIcon {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 33%;
+}
+.image  {
+    width: 20px;
+} 
+.image:hover  {
+    width: 100%;
+}      

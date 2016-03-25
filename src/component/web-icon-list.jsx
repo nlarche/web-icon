@@ -1,13 +1,6 @@
-var React = require('react');
-var WebIcon = require('./web-icon');
-
-const Styles = {
-    webIconList: {
-        display: 'flex',
-        flexDirection: 'row',
-        width: '30%'
-    }
-};
+import React from 'react';
+import WebIcon from './web-icon';
+import Styles from './web-icon.css';
 
 var WebIconList = React.createClass({
     getDefaultProps() {
@@ -15,7 +8,7 @@ var WebIconList = React.createClass({
     },
     render: function() {
         return (
-            <div style={Styles.webIconList} >
+            <div className={Styles.webIconList} >
                 { this.props.websites.map(app =>
                     <WebIcon url={app} key={this.props.websites.indexOf(app) }/>) }
             </div>

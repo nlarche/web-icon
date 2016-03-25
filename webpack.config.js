@@ -2,7 +2,7 @@
 var path = require('path');
 
 var config = {
-    devtool : 'source-map',
+    devtool: 'source-map',
     context: __dirname,
     entry: {
         'bundle': ['./src/index.js'],
@@ -21,9 +21,13 @@ var config = {
                     presets: ['react', 'es2015']
                 }
             },
+            {
+                test: /\.css$/,
+                loader: 'style!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
+            }
         ]
     },
-     resolve: {
+    resolve: {
         extensions: ['', '.js', '.jsx']
     },
     devServer: {
