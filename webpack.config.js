@@ -1,15 +1,23 @@
 /* global __dirname */
 var path = require('path');
 
+var production = process.env.NODE_ENV === 'production';
+
 var config = {
     devtool: 'source-map',
     context: __dirname,
     entry: {
-        'bundle': ['./src/index.js', './public/index.jsx'],
+        'bundle': ['./src/index.js'],
     },
     output: {
         path: path.join(__dirname, 'dist'),
         filename: './[name].js',
+        library: 'webIcon',
+        libraryTarget: 'umd',
+        externals: {
+            'react': 'react',
+            'react-dom': 'react-dom'
+        }
     },
     module: {
         loaders: [
@@ -39,11 +47,16 @@ var config = {
     }
 };
 
-// Producition mode react
-// new webpack.DefinePlugin({
-//   "process.env": {
-//     NODE_ENV: JSON.stringify("production")
-//   }
-// });
+if (production) {
+    // production mode react
+    new webpack.DefinePlugin({
+        "process.env": {
+            NODE_ENV: JSON.stringify("production")
+        }
+    });
+} else {
+    entry.bundle.push('./public/index.jsx');
+
+}
 
 module.exports = config;
