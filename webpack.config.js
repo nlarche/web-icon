@@ -5,7 +5,7 @@ var config = {
     devtool: 'source-map',
     context: __dirname,
     entry: {
-        'bundle': ['./src/index.js'],
+        'bundle': ['./src/index.js', './public/index.jsx'],
     },
     output: {
         path: path.join(__dirname, 'dist'),
@@ -23,7 +23,8 @@ var config = {
             },
             {
                 test: /\.css$/,
-                loader: 'style!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
+                loader: 'style!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
+                exclude: /node_modules/,
             }
         ]
     },

@@ -1,6 +1,5 @@
 import React from 'react';
 import Styles from './web-icon.css';
-import Rx from 'rx-dom';
 
 var WebIcon = React.createClass({
     getInitialState() {
