@@ -1,17 +1,17 @@
 .webIconList  {
     display: flex;
     flex-direction: row;    
-    width : 30%;
+    width : 20vw;    
 }
 .webIcon {
     display: flex;
-    align-items: center;
-    width: 100%;
+    align-items: center;    
     height: 33%;
+    margin: 10px
 }
 .image  {
     width: 20px;
 } 
 .image:hover  {
-    width: 100%;
+    width: 100%;  
 }      
