@@ -3,7 +3,7 @@ fetch and display favicon from website url
 
 ### Todos
 
-- Add test with Mocha and chai
+- Add test Jest (in progress)
 - Add continous integration (travis)
 - Add semantic release
 - Make it as independant library
