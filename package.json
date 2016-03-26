@@ -2,7 +2,7 @@
   "name": "web-icon",
   "version" : "0.0.0",
   "description": "fetch and display favicon from website url",
-  "main": "src/index.js",
+  "main": "dist/web-icon.js",
   "scripts": {
     "test": "jest",
     "server": "UV_THREADPOOL_SIZE=100 node node_modules/.bin/webpack-dev-server --inline --colors --display-error-details --display-cached --port 3001 ",

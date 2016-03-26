@@ -11,7 +11,7 @@ var config = {
     },
     output: {
         path: path.join(__dirname, 'dist'),
-        filename: './[name].js',
+        filename: './web-icon.js',
         library: 'webIcon',
         libraryTarget: 'umd',
         externals: {
