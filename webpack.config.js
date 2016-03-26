@@ -9,7 +9,6 @@ var config = {
     entry: {
         'bundle': ['./src/index.js'],
     },
-
     module: {
         loaders: [
             {
