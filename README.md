@@ -1,6 +1,8 @@
 # web-icon
 fetch and display favicon from website url
 
+[![travis build](https://img.shields.io/travis/nlarche/web-icon.svg)](https://travis-ci.org/nlarche/web-icon)
+
 ### Todos
 
 - Add test Jest (in progress)
