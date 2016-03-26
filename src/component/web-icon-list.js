@@ -2,11 +2,12 @@ import React from 'react';
 import WebIcon from './web-icon';
 import Styles from './web-icon.css';
 
-var WebIconList = React.createClass({
-    getDefaultProps() {
-        return { websites: [] };
-    },
-    render: function() {
+export default class WebIconList extends React.Component {
+    
+    constructor(props) {
+        super(props);    
+    }   
+    render () {
         return (
             <div className={Styles.webIconList} >
                 { this.props.websites.map(app =>
@@ -14,6 +15,4 @@ var WebIconList = React.createClass({
             </div>
         );
     }
-});
-
-module.exports = WebIconList;
+};
