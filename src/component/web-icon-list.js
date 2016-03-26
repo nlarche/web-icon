@@ -9,7 +9,7 @@ export default class WebIconList extends React.Component {
     constructor(props) {
         super(props);    
     }   
-    render () {
+    render () {        
         return (
             <div className={Styles.webIconList} >
                 { this.props.websites.map(app =>

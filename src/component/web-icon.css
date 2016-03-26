@@ -11,7 +11,13 @@
 }
 .image  {
     width: 20px;
-} 
-.image:hover  {
-    width: 100%;  
-}      
+}     
+.hidden { 
+    display:none; 
+}
+.preview {
+    background-color:#E2E2E2;
+    width:20px;
+    height:20px; 
+    border-radius: 5px;
+}

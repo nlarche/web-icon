@@ -1,4 +1,5 @@
-var WebIcon = require('./component/web-icon');
-var WebIconList = require('./component/web-icon-list');
+import WebIcon from './component/web-icon';
+import WebIconList from './component/web-icon-list';
 
-module.exports  = {WebIcon, WebIconList};
+export { WebIconList};
+export { WebIcon};

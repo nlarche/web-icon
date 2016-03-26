@@ -9,16 +9,7 @@ var config = {
     entry: {
         'bundle': ['./src/index.js'],
     },
-    output: {
-        path: path.join(__dirname, 'dist'),
-        filename: 'web-icon.js',
-        library: 'webIcon',
-        libraryTarget: 'umd',
-        externals: {
-            'react': 'react',
-            'react-dom': 'react-dom'
-        }
-    },
+
     module: {
         loaders: [
             {
@@ -55,6 +46,17 @@ if (production) {
             NODE_ENV: JSON.stringify("production")
         }
     });
+
+    config.output = {
+        path: path.join(__dirname, 'dist'),
+        filename: '[name].js',
+        library: 'webIcon',
+        libraryTarget: 'umd',
+        externals: {
+            'react': 'react',
+            'react-dom': 'react-dom'
+        }
+    }
 } else {
     config.entry.bundle.push('./public/index.js');
 

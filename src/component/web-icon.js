@@ -9,9 +9,19 @@ export default class WebIcon extends React.Component {
         super(props);
         this.state = {
             favicon: null,
-            name: null
+            name: null,
+            loaded : false
         };
+        
+        this.onLoad = this.onLoad.bind(this);
     }
+    
+    onLoad(){
+         this.setState({
+            loaded: true
+        }); 
+    }
+    
     searchFavicon() {
         var favicon;
 
@@ -35,16 +45,17 @@ export default class WebIcon extends React.Component {
             origin: parser.origin
         });
     }
-    render() {
-        return (
-            <div className={Styles.webIcon} >
-                <a href={this.state.origin} title={this.state.name} target="_blank"  >
-                    <img src={this.state.favicon} alt={this.state.name} className={Styles.image}/>
+    render() {    
+       return (
+            <div className={Styles.webIcon} >               
+              <a href={this.state.origin} title={this.state.name} target="_blank" className={this.state.loaded ? null : Styles.hidden}  >
+                        <img src={this.state.favicon} alt={this.state.name} className={Styles.image} onLoad={this.onLoad} />
                 </a>
+              <div className={this.state.loaded ? Styles.hidden : null}>
+                <div className={Styles.preview}></div>
+              </div>                     
             </div>
         );
     }
 }
-
-
 
