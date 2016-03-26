@@ -5,8 +5,8 @@ const jestPreset = require('babel-preset-jest');
 
 module.exports = {
     process(src, filename) {
-        if (/\.css$/.test(filename)) {
-            return {};
+        if (filename.match(/css/)) {
+            return '';
         } else
             if (babel.util.canCompile(filename)) {
                 return babel.transform(src, {
