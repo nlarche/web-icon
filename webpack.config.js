@@ -22,7 +22,7 @@ var config = {
     module: {
         loaders: [
             {
-                test: /\.jsx$/,
+                test: /\.js$/,
                 exclude: /node_modules/,
                 loader: 'babel',
                 query: {
@@ -55,7 +55,7 @@ if (production) {
         }
     });
 } else {
-    entry.bundle.push('./public/index.jsx');
+    config.entry.bundle.push('./public/index.js');
 
 }
 
