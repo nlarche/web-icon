@@ -48,6 +48,7 @@ var config = {
 };
 
 if (production) {
+    var webpack = require('webpack');
     // production mode react
     new webpack.DefinePlugin({
         "process.env": {
