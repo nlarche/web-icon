@@ -22,8 +22,14 @@ describe('Webicon', () => {
   });  
     
   it('Render the webiconList component', function () {
-    // Verify that it's the node is not null
-    expect(this.renderedDOM()).not.toEqual(null);   
+       // Verify that it's the node is not null
+       expect(this.renderedDOM()).not.toEqual(null);   
+  });
+  
+  it('Render a List of webicon component', function () {
+       // Check liste size
+       const items = TestUtils.scryRenderedDOMComponentsWithTag(this.component, "WebIcon")
+       expect(items.length).not.toEqual(this.liste.length);   
   });
  
   
