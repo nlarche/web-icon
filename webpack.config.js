@@ -50,11 +50,11 @@ if (production) {
         path: path.join(__dirname, 'dist'),
         filename: '[name].js',
         library: 'webIcon',
-        libraryTarget: 'umd',
-        externals: {
-            'react': 'react',
-            'react-dom': 'react-dom'
-        }
+        libraryTarget: 'umd'
+    }
+    config.externals = {
+        'react': 'react',
+        'react-dom': 'react-dom'
     }
 } else {
     config.entry.bundle.push('./public/index.js');
