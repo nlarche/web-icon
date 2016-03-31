@@ -9,3 +9,8 @@ ReactDOM.render(
     <WebIconList websites={liste} />,
     document.getElementById('content')
 );  
+
+ReactDOM.render(
+    <WebIconList websites={liste} noLink={true} grayscale={true} />,
+    document.getElementById('content-noLink')
+); 

@@ -10,50 +10,69 @@ export default class WebIcon extends React.Component {
         this.state = {
             favicon: null,
             name: null,
-            loaded : false
+            loaded: false,
         };
-        
+
         this.onLoad = this.onLoad.bind(this);
     }
-    
-    onLoad(){
-         this.setState({
-            loaded: true
-        }); 
-    }
-    
-    searchFavicon() {
-        var favicon;
-
-        if (this.props.url.indexOf('favicon') === -1) {
-            favicon = this.props.url + '/favicon.ico'
-        } else {
-            favicon = this.props.url;
-        }
-        return favicon;
-    }
-    componentDidMount() {
-
-        var url = this.props.url;
+    init(props) {
+        var url = props.url;
 
         var parser = document.createElement('a');
         parser.href = url
 
+        var favicon = this.searchFavicon(url);
+
         this.setState({
-            favicon: this.searchFavicon(),
+            favicon: favicon,
             name: parser.hostname,
-            origin: parser.origin
+            origin: parser.origin,
+            loaded: false
         });
     }
-    render() {    
-       return (
-            <div className={Styles.webIcon} >               
-              <a href={this.state.origin} title={this.state.name} target="_blank" className={this.state.loaded ? null : Styles.hidden}  >
-                        <img src={this.state.favicon} alt={this.state.name} className={Styles.image} onLoad={this.onLoad} />
-                </a>
-              <div className={this.state.loaded ? Styles.hidden : null}>
-                <div className={Styles.preview}></div>
-              </div>                     
+    onLoad() {
+        this.setState({
+            loaded: true
+        });
+    }
+    searchFavicon(url) {
+        var favicon;
+
+        if (url && url.indexOf('favicon') === -1) {
+            favicon = url + '/favicon.ico'
+        } else {
+            favicon = url;
+        }
+        return favicon;
+    }
+    componentWillReceiveProps(nextProps) {
+        this.init(nextProps);
+    }
+    componentDidMount() {
+        this.init(this.props);
+    }
+    render() {
+
+        var loaded = this.state.loaded;
+        var noLink = this.props.noLink;
+
+        var imageStyle = this.props.grayscale ? Styles.grayscale : Styles.image;
+
+        var image = <img src={this.state.favicon} alt={this.state.name} className={imageStyle} onLoad={this.onLoad} />
+
+        return (
+            <div className={Styles.webIcon} >
+                { !noLink &&
+                    <a href={this.state.origin} title={this.state.name} target="_blank" className={loaded ? null : Styles.hidden}  >
+                        {image}
+                    </a>
+                }
+                {
+                    noLink && image
+                }
+                <div className={loaded ? Styles.hidden : null}>
+                    <div className={Styles.preview}></div>
+                </div>
             </div>
         );
     }

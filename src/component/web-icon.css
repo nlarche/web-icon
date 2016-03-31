@@ -21,3 +21,9 @@
     height:20px; 
     border-radius: 5px;
 }
+.grayscale {
+    composes : image;
+    filter: gray;
+    filter: grayscale(1);
+    -webkit-filter: grayscale(1);
+}

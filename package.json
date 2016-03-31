@@ -1,6 +1,6 @@
 {
   "name": "web-icon",
-  "version" : "0.0.0",
+  "version": "0.0.0",
   "description": "fetch and display favicon from website url",
   "main": "dist/bundle.js",
   "scripts": {
@@ -35,10 +35,10 @@
     "css-loader": "^0.23.1",
     "jest-cli": "^0.9.2",
     "react-addons-test-utils": "^0.14.7",
+    "semantic-release": "^4.3.5",
     "style-loader": "^0.13.1",
     "webpack": "^1.12.14",
-    "webpack-dev-server": "^1.14.1",
-    "semantic-release": "^4.3.5"
+    "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
     "babel-preset-react": "^6.5.0",

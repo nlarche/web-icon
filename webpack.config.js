@@ -56,7 +56,7 @@ if (production) {
         'react-dom': 'react-dom'
     }
 } else {
-    devtool = 'source-map';
+    config.devtool = 'source-map';
     config.entry.bundle.push('./public/index.js');
 
 }
