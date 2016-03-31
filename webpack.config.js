@@ -4,7 +4,6 @@ var path = require('path');
 var production = process.env.NODE_ENV === 'production';
 
 var config = {
-    devtool: 'source-map',
     context: __dirname,
     entry: {
         'bundle': ['./src/index.js'],
@@ -57,6 +56,7 @@ if (production) {
         'react-dom': 'react-dom'
     }
 } else {
+    devtool = 'source-map';
     config.entry.bundle.push('./public/index.js');
 
 }
