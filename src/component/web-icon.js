@@ -27,7 +27,6 @@ export default class WebIcon extends React.Component {
             favicon: favicon,
             name: parser.hostname,
             origin: parser.origin,
-            loaded: false
         });
     }
     onLoad() {
@@ -44,6 +43,13 @@ export default class WebIcon extends React.Component {
             favicon = url;
         }
         return favicon;
+    }
+    shouldComponentUpdate(nextProps, nextState) {
+        if (!this.state.loaded){
+            return true;
+        }
+        // update when new url only
+        return nextProps.url === this.props.url ? false : true;
     }
     componentWillReceiveProps(nextProps) {
         this.init(nextProps);
@@ -62,14 +68,16 @@ export default class WebIcon extends React.Component {
 
         return (
             <div className={Styles.webIcon} >
-                { !noLink &&
-                    <a href={this.state.origin} title={this.state.name} target="_blank" className={loaded ? null : Styles.hidden}  >
-                        {image}
-                    </a>
-                }
-                {
-                    noLink && image
-                }
+                <div  className={loaded ? null : Styles.hidden} >
+                    { !noLink &&
+                        <a href={this.state.origin} title={this.state.name} target="_blank"  >
+                            {image}
+                        </a>
+                    }
+                    {
+                        noLink && image
+                    }
+                </div>
                 <div className={loaded ? Styles.hidden : null}>
                     <div className={Styles.preview}></div>
                 </div>
