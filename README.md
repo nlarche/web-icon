@@ -8,4 +8,5 @@ fetch and display favicon from website url
 ### Todos
 
 - Add zoom on mouseover on a floating div
+- Add exemple to readme and gh-pages
 
